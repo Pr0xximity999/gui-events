@@ -38,14 +38,14 @@ def tripleOrNah(event=''):
 
 
 #The functions for handling the increment and decrement of the on screen number
-def increment():
+def increment(event):
     global num, UpLastPressed, DownLastPressed
     UpLastPressed = True
     DownLastPressed = False
     num += 1
     update()
 
-def decrement():
+def decrement(event):
     global num, UpLastPressed, DownLastPressed
     UpLastPressed = False
     DownLastPressed = True
@@ -70,5 +70,12 @@ downBtn.place(relx=0.5, rely=0.8, anchor=CENTER)
 text.bind('<Double-Button-1>', tripleOrNah)
 text.bind('<Enter>', yellow)
 text.bind('<Leave>', update)
+
+#Window events
+window.bind('<Up>', increment)
+window.bind('<+>', increment)
+window.bind('<Down>', decrement)
+window.bind('-', decrement)
+window.bind('<space>', tripleOrNah)
 
 window.mainloop()
