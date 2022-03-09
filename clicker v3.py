@@ -12,7 +12,7 @@ window.geometry('250x200')
 #updates the background and text
 def update(event=''):
     global text, window, num
-    text.configure(text="%.2f" %num)
+    text.configure(text="%.0f" %num)
 
     #Updates the background depending on the number's value
     color = ''
